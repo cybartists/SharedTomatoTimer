@@ -17,6 +17,9 @@ if (queryParams.get('group')) {
 
 // 更新倒计时显示
 function updateTimerDisplay(timeLeft) {
+    if (timeLeft < 0) {
+        timeLeft = 0;
+    }
     const minutes = Math.floor(timeLeft / 60);
     const seconds = timeLeft % 60;
     timerDisplay.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
